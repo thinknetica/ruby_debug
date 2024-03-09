@@ -1,24 +1,3 @@
-# README
+## How to Setup Docker for Ruby on Rails 7
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Check out our detailed guide on setting up Docker for Ruby on Rails 7](https://dev.to/jetthoughts_61/setting-up-docker-for-ruby-on-rails-7-50cd)
