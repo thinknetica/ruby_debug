@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Задача
 
 ## Подготовка к выполнению практики
@@ -36,3 +37,4 @@ bundle exec rails db:create db:migrate RAILS_ENV=test
 docker-compose exec web bash
 bundle exec rspec spec --seed 1707
 ```
+
