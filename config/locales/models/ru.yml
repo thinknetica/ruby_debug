@@ -1,0 +1,94 @@
+ru:
+  errors:
+    models:
+      user:
+        attributes:
+          policy_confirmed:
+            blank: "Необходимо Ваше согласие на обработку персональных данных"
+
+  activerecord:
+    errors:
+      models:
+        help_request_log:
+          attributes:
+            photos:
+              content_type: "Неверный формат изображения. Поддерживаемые форматы: JPEG, PNG, BMP"
+              max_size_error: "Слишком большое изображение. Максимальный размер: 10 Mb"
+    models:
+      user: Пользователи
+    attributes:
+      user:
+        name: Имя
+        surname: Фамилия
+        phone: Телефон
+        email: Электронная почта
+        password: Пароль
+        password_confirmation: Пароль
+        role: Роль
+        admin: Администратор
+        moderator: Модератор
+        volunteer: Волонтер
+        content_manager: Координатор
+        organization_id: Организация
+        organization: Организация
+        score: Баллы за выполненные просьбы
+        policy_confirmed: Cогласен на обработку персональных данных
+      custom_field:
+        name: Название
+        custom_values: Значения в просьбах
+      help_request:
+        title: Заголовок
+        number: Номер просьбы
+        lonlat: Точка на карте
+        lonlat_geojson: Точка на карте
+        city: Город
+        district: Район
+        street: Улица
+        house: Дом
+        apartment: Квартира
+        phone: Телефон
+        person: ФИО
+        meds_preciption_required: Нужны лекарства по рецепту
+        comment: Комментарий
+        date_begin: Время начала события
+        date_end: Время окончания события
+        mediated: Помощь для другого
+        recurring: Повторяющаяся просьба
+        period: Период повтора
+        volunteer_id: Волонтер
+        help_request_kind_id: Вид просьбы
+        score: Баллы
+      organization:
+        title: Наименование 
+        country: Страна 
+        city: Город 
+        site: Сайт
+        test: Тестовый фонд
+        configs:
+          notify_if_new: Отправлять волонтерам уведомления о новых просьбах
+          volunteers_can_join: Волонтёры при регистрации могут присоединиться к организации
+      help_request_kind:
+        name: Название
+        default: Применять по умолчанию
+        organization: Организация
+        organization_id: Организация
+        help_requests: Просьбы
+
+        
+      report:
+        name: Название
+        document: Файл отчета
+  help_request_log:
+    kind:
+      assigned: "%{user} взял просьбу в работу"
+      submitted: "%{user} выполнил просьбу"
+      refused: "%{user} отказался от выполнения"
+      blocked: "%{user} заблокировал просьбу"
+      activated: "%{user} активировал просьбу"
+      refreshed: Повторяющаяся просьба обновлена
+      created: "%{user} создал просьбу"
+      manual_assign: "%{user} назначил волонтеру просьбу"
+      manual_unassign: "%{user} снял волонтера с просьбы"
+      refreshed: Повторяющаяся просьба обновлена
+      updated: "%{user} обновил просьбу"
+      cloned: "%{user} склонировал просьбу"

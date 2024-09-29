@@ -1,0 +1,21 @@
+<% title = help_request_kind.new_record? ? t(".new_kind") : "#{t(".help_request_kinds")}: #{help_request_kind.name}" %>
+<p><h3><%= title %></h3></p>
+<%= simple_form_for [:admin, help_request_kind], wrapper: :horizontal_form do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :default %>
+  <%= render 'custom_fields', f: f unless help_request_kind.new_record? %>
+  <div class="form-group row mb-0">
+    <div class="col-sm-9 offset-sm-3">
+      <%= f.submit(help_request_kind.new_record? ? t(".create") : t(".save"), class: 'btn btn-primary') %>
+      <%= link_to(t(".cancel"), admin_help_request_kinds_path, class: 'btn btn-outline-secondary align-self-start') %>
+      <% unless help_request_kind.new_record? %>
+        <%= link_to(t(".delete"), admin_help_request_kind_path(help_request_kind),
+                    method: :delete,
+                    data: { confirm: t(".confirm") },
+                    class: 'btn btn-outline-danger align-self-start')
+        %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
