@@ -14,7 +14,6 @@ module Api
           unless @user.active?
             return render json: error_response(I18n.t('authentication.errors.pending')), status: :forbidden
           end
-
           register_app_version!(@user, params[:app_version])
           render json: generate_token_data(@user), status: :ok
         else
