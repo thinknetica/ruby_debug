@@ -24,8 +24,6 @@ class HelpRequestLog < ApplicationRecord
   #   attachable.variant :medium, resize: "300x300", monochrome: true
   # end
 
-  validates :photos, presence: false, blob: { content_type: ['image/bmp', 'image/png', 'image/jpg', 'image/jpeg'], size_range: 0..(10.megabytes) }
-
   enum kind: {
     actived: 0, assigned: 1,
     submitted: 2, refused: 3,

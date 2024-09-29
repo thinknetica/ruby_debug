@@ -17,13 +17,6 @@
           <td><%= log.label %></td>
           <td>
             <div><%= log.comment.try(:html_safe) %></div>
-            <% if log.photos.attached? %>
-              <% log.photos.each do |photo| %>
-                <%= link_to rails_blob_path(photo), { class: 'log-image', target: "_blank" } do %>
-                  <%= image_tag photo.variant(resize_to_fit: [200, 100]) %>
-                <% end %>
-              <% end %>
-            <% end %>
           </td>
           <td><%= print_datetime(log.created_at) %></td>
         </tr>

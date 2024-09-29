@@ -59,7 +59,7 @@ module Api
       end
 
       def update_params
-        params.permit(:comment, photos: [])
+        params.permit(:comment)
       end
     end
   end
