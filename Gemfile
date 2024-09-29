@@ -70,3 +70,90 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+gem 'activerecord-import'
+# Use Json Web Token (JWT) for token based authentication
+gem 'jwt'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'rgeo'
+gem 'rgeo-activerecord'
+gem 'rgeo-geojson'
+
+gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
+gem 'pundit'
+
+gem 'simple_form'
+gem 'cocoon'
+gem 'bootstrap-glyphicons'
+
+gem 'stateful_enum'
+
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+gem 'rake'
+gem 'fcm'
+
+gem 'caxlsx'
+gem 'caxlsx_rails'
+
+gem 'sentry-ruby'
+gem 'sentry-rails'
+
+gem 'image_processing', ">= 1.2"
+gem 'activestorage-validator'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap',  require: false
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'rspec-default_http_header'
+  gem 'factory_bot'
+  gem 'faker'
+  gem 'timecop'
+  gem 'database_cleaner-active_record'
+  gem 'webdrivers'
+  gem 'cucumber-rails', require: false
+  gem 'capybara-screenshot'
+  gem 'show_me_the_cookies'
+  # Easy installation and use of web drivers to run system tests with browsers
+end
+
+group :development do
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'rubocop'
+
+  gem 'capistrano', '~> 3.11'
+  gem 'ed25519', '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+group :test do
+  gem 'fuubar'
+  gem 'simplecov', '~> 0.19.0', require: false
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'rails-settings-cached', '~> 2.2'
+
+gem 'pry', '~> 0.13.1'
+
+gem 'pry-byebug', '~> 3.9'

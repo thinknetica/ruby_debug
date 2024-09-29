@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Service for the Ruby on Rails web application
   web:
