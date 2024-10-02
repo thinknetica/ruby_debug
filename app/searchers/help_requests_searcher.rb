@@ -45,7 +45,7 @@ class HelpRequestsSearcher < TextSearcher
     else
       sort = by_sorting_params
     end
-
+    scope = apply_normalizer(scope)
     scope.reorder(sort)
   end
 
@@ -70,12 +70,17 @@ class HelpRequestsSearcher < TextSearcher
     creator_id.blank? ? scope : scope.where(creator_id: creator_id)
   end
 
+  def apply_normalizer(scope)
+    normalize_key = ENV['SEARCH_NORMALIZE_KEY']
+    normalize_key.nil? ? scope.unscope(:where) : scope.where(normalize_key => true)
+  end
+
   def apply_number(scope)
     number = search_params[:number]
     number.blank? ? scope : scope.where("number ILIKE concat('%', ?, '%')", number)
   end
 
-  def by_sorting_params
+def by_sorting_params
     ["#{search_params[:column]} #{search_params[:direction]}"]
   end
 end
