@@ -17,6 +17,7 @@ services:
   db:
     image: postgres:13  # Use the official PostgreSQL version 13 image
     ports:
+      - "0.0.0.0:5432:5432"
       - "5432:5432"  # Expose port for accessing the database
     volumes:
       - postgres_data:/var/lib/postgresql/data  # Create a volume for storing database data
