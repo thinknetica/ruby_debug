@@ -2,19 +2,23 @@ module Admin
   module HelpRequestCases
     class Create < Base
       def call
-        prelim_handle_address!(permitted_params)
-        if help_request.update(
-          permitted_params.merge(
-            creator_id: current_user.id
+        HelpRequest.transition do
+          prelim_handle_address!(permitted_params)
+          if help_request.update(
+            permitted_params.merge(
+              creator_id: current_user.id
+            )
           )
-        )
-          write_moderator_log(:created)
-          handle_blocking!
-          handle_volunteer_assignments!(nil)
-          notify_volunteers_on_creation
-          return true
+            write_moderator_log(:created)
+            handle_blocking!
+            handle_volunteer_assignments!(nil)
+            notify_volunteers_on_creation
+            return true
+          end
         end
 
+        false
+      rescue
         false
       end
 

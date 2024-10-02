@@ -15,7 +15,7 @@ module Admin
 
       private
 
-      attr_reader :help_request, :params, :current_user
+      attr_reader :help_request, :params
 
       def handle_volunteer_assignments!(old_volunteer)
         return if help_request.volunteer == old_volunteer
