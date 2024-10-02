@@ -19,6 +19,8 @@ module Admin
         true
       rescue Exception => e
         false
+      rescue
+        false
       end
 
       private
