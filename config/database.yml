@@ -1,21 +1,22 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: postgres
-  username: <%= Rails.application.credentials.dig(:db, :username) %>
-  password: <%= Rails.application.credentials.dig(:db, :password) %>
+  host: db
+  port: 5432
+  username: postgres
+  password: postgres
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: rails_7_with_docker_development
+  database: debugrepo_development
 
 test:
   <<: *default
-  database: rails_7_with_docker_test
+  database: debugrepo_test
 
 production:
   <<: *default
-  database: rails_7_with_docker_production
-  username: rails_7_with_docker
-  password: <%= ENV["RAILS_7_WITH_DOCKER_DATABASE_PASSWORD"] %>
+  database: debugrepo_production
+  username: debugrepo
+  password: <%= ENV["DEBUGREPO_DATABASE_PASSWORD"] %>

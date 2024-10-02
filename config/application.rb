@@ -15,7 +15,7 @@ module Rails7WithDocker
     config.autoload_paths << "#{Rails.root}/lib"
     config.i18n.default_locale = ENV['LOCALE'] || 'ru'
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
-
+    # config.web_console.whitelisted_ips = '127.0.0.22'
 
     # Configuration for the application, engines, and railties goes here.
     #

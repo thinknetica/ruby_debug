@@ -11,8 +11,8 @@
 #  date_end                 :datetime
 #  district                 :string
 #  house                    :string
-#  lonlat                   :geography        not null, point, 4326
-#  lonlat_with_salt         :geography        point, 4326
+#  lonlat                   :string
+#  lonlat_with_salt         :string
 #  mediated                 :boolean          default(FALSE), not null
 #  meds_preciption_required :boolean
 #  number                   :string
@@ -22,7 +22,7 @@
 #  recurring                :boolean
 #  schedule_set_at          :date
 #  score                    :integer          default(1), not null
-#  state                    :integer          default("active"), not null
+#  state                    :integer          default("active")
 #  street                   :string
 #  title                    :string(140)
 #  created_at               :datetime         not null

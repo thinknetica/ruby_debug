@@ -95,9 +95,9 @@ ActiveRecord::Schema[7.0].define(version: 2021_10_12_195819) do
   end
 
   create_table "help_requests", force: :cascade do |t|
-    t.string "lonlat", null: false
+    t.string "lonlat"
     t.string "phone"
-    t.integer "state", default: 0, null: false
+    t.integer "state", default: 0
     t.text "comment"
     t.string "person"
     t.boolean "mediated", default: false, null: false

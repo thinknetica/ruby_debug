@@ -1,6 +1,6 @@
 module Admin
   class OrganizationsController < Admin::BaseController
-    before_action :set_organization, only: %i[edit update destroy archive]
+    before_action :set_organization, only: %i[edit destroy archive]
 
     def index
       @organizations = Organization.active

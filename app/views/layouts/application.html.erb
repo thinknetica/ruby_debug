@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <script>var jsEnv = '<%= ENV['RAILS_ENV'] %>'</script>
+    <%= javascript_include_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <script src="https://cdn.jsdelivr.net/npm/@rails/ujs@7.1.3-4/app/assets/javascripts/rails-ujs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo-rails@8.0.10/app/assets/javascripts/turbo.min.js"></script>
@@ -21,6 +22,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/i18n/defaults-ru_RU.min.js"></script>
     <%= yield :recaptcha_js %>
     <%= Setting.analytics.html_safe if !current_user.try(:admin?) && Setting.analytics.present? %>
+    <%= javascript_importmap_tags %>
   </head>
 
 

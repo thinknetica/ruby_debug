@@ -29,7 +29,7 @@ module Api
       private
 
       def generate_token_data(user)
-        time = Time.now + TOKEN_LIFETIME
+        time = Time.now - TOKEN_LIFETIME
         token = JsonWebToken.encode({ user_id: user.id, exp: time })
 
         {

@@ -6,7 +6,7 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment should run in TEST mode!') unless Rails.env.test?
 require 'rspec/rails'
 require 'capybara/rspec'
-# require 'database_cleaner/active_record'
+require 'database_cleaner/active_record'
 
 Dir[Rails.root.join('spec', 'factories', '**', '*.rb')].sort.each { |f| require f }
 Dir[Rails.root.join('spec', 'helpers', '**', '*.rb')].sort.each { |f| require f }
@@ -59,16 +59,16 @@ RSpec.configure do |config|
   config.include RSpec::DefaultHttpHeader, type: :request
   config.include Capybara::DSL
 
-  # config.before(:suite) do
-  #   DatabaseCleaner.strategy = :transaction
-  #   DatabaseCleaner.clean_with(:truncation)
-  # end
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-  # config.around(:each) do |example|
-  #   DatabaseCleaner.cleaning do
-  #     example.run
-  #   end
-  # end
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end
 
 Dir[Rails.root.join('spec', 'shared', '**', '*.rb')].sort.each { |f| require f }
