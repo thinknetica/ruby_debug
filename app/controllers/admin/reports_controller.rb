@@ -12,7 +12,7 @@ module Admin
                            .where(users: { organization: current_organization })
       data = ActionController::Base.new.render_to_string(
         layout: false,
-        template: 'admin/reports/template',
+        template: 'admin/reports/template.xlsx.axlsx',
         handlers: [:axlsx],
         formats: [:xlsx],
         locals: { logs: logs, current_organization: current_organization }
