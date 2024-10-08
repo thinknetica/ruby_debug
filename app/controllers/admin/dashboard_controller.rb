@@ -13,16 +13,3 @@ module Admin
     end
   end
 end
-
-semaphore = Mutex.new
-
-[:a, :b, :c].each do |tname|
-  Thread.new(tname) do |t_name|
-    semaphore.synchronize {
-      if t_name == :a
-        byebug
-      end
-    }
-    puts "exit #{t_name}"
-  end
-end
