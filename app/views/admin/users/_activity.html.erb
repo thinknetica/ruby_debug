@@ -1,0 +1,23 @@
+<div class='mt-5 mb-5'>
+  <h3><%= t(".activity") %></h3>
+  <table class='table table-bordered table-hover'>
+    <thead>
+      <tr>
+        <td><%= t(".help_request") %></td>
+        <td><%= t(".action") %></td>
+        <td><%= t(".comment") %></td>
+        <td><%= t(".time") %></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% activity.each do |log| %>
+        <tr>
+          <td><%= link_to("#{t(".help_request_num")}#{log.help_request.number}", edit_admin_help_request_path(log.help_request)) %></td>
+          <td><%= log.label %></td>
+          <td><%= log.comment %></td>
+          <td><%= print_datetime(log.created_at) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

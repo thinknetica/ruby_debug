@@ -1,0 +1,21 @@
+<div class="container">
+  <h2><%= t(".header") %></h2>
+  <p>
+    <b><%= t(".full.header") %></b>
+    <div class="row">
+      <% data[:full].each do |key, value| %>
+        <% title = t(".full.#{key}")%>
+        <%= dashboard_field(title, value).html_safe %>
+      <% end %>
+    </div>
+  </p>
+  <p>
+    <b><%= t(".week.header") %></b>
+    <div class="row">
+      <% data[:week].each do |key, value| %>
+        <% title = t(".week.#{key}")%>
+        <%= dashboard_field(title, value).html_safe %>
+      <% end %>
+    </div>
+  </p>
+</div>

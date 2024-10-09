@@ -1,0 +1,28 @@
+<% title = organization.new_record? ? t(".new_organization") : "#{t(".organization")}: #{organization.title}" %>
+<p><h3><%= title %></h3></p>
+<%= simple_form_for [:admin, organization], wrapper: :horizontal_form do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title %>
+  <%= f.input :country, as: :string %>
+  <%= f.input :city %>
+  <%= f.input :site %>
+  <%= f.input :test %>
+  <div class="form-group row mb-0">
+    <div class="col-sm-9 offset-sm-3">
+      <%= f.submit(organization.new_record? ? t(".create") : t(".save"), class: 'btn btn-primary') %>
+      <%= link_to(t(".cancel"), admin_organizations_path, class: 'btn btn-outline-secondary align-self-start') %>
+      <% unless organization.new_record? %>
+        <%= link_to(t(".archive"), archive_admin_organization_path,
+                    method: :post,
+                    data: { confirm: t(".confirm") },
+                    class: 'btn btn-outline-secondary align-self-start') %>
+        <!-- вркменно отключено -->
+        <!--<%#= link_to('Удалить', admin_organization_path(organization),
+                    method: :delete,
+                    data: { confirm: 'Вы уверены что хотите удалить организацию?' },
+                    class: 'btn btn-outline-danger align-self-start')
+        %> -->
+      <% end %>
+    </div>
+  </div>
+<% end %>
