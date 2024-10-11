@@ -1,0 +1,20 @@
+<%= form_tag admin_users_path, method: 'GET', class: 'mb-4' do %>
+  <div class='row'>
+    <div class='col-4'>
+      <div class="row justify-content-start">
+        <div class="input-group ml-0">
+          <%= text_field_tag :search, params[:search], placeholder: t(".searching"), class: 'form-control' %>
+          <div class="input-group-append">
+            <%= submit_tag t(".search"), class: 'btn btn-outline-success' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-4 mt-4'>
+      <%= t(".find") %>: <b><%= users_count %></b>
+    </div>
+    <div class='col-4'>
+      <%= link_to t(".reset"), admin_users_path, class: 'btn btn-sm float-right btn-outline-secondary mt-3' %>
+    </div>
+  </div>
+<% end %>

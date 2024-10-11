@@ -1,0 +1,26 @@
+<div class='mt-5 mb-5'>
+  <h3><%= t(".active") %></h3>
+  <table class='table table-bordered table-hover'>
+    <thead>
+      <tr>
+        <td><%= t(".author") %></td>
+        <td><%= t(".action") %></td>
+        <td><%= t(".comment") %></td>
+        <td><%= t(".time") %></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% logs.each do |log| %>
+        <% user = log.user %>
+        <tr>
+          <td><%= link_to user_label(user), edit_admin_user_path(user) if user %></td>
+          <td><%= log.label %></td>
+          <td>
+            <div><%= log.comment.try(:html_safe) %></div>
+          </td>
+          <td><%= print_datetime(log.created_at) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

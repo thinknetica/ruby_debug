@@ -1,0 +1,16 @@
+<p>Здравствуйте, <%= @user.name %></p>
+
+<p>
+  Вы заполнили форму регистрации на Helphub.ru, чтобы помогать людям вместе с благотворительным фондом <%= @organization.title %>
+</p>
+<p>
+  Чтобы продолжить, подтвердите вашу почту по этой <%= link_to 'ссылке', confirmation_url(@resource, confirmation_token: @token) %>.
+</p>
+<p>Если вы не регистрировались на Helphub.ru, проигнорируйте это письмо.<p>
+<p>
+  С уважением,<br/>
+  Команда Helphub<br/>
+  <%= link_to "https://helphub.ru", "https://helphub.ru" %><br/>
+</p>
+
+<p>По любым вопросам пишите на <%= link_to "hello@helphub.ru", "mailto:hello@helphub.ru"%></p>

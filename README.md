@@ -1,24 +1,38 @@
-# README
+# Задача
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Подготовка к выполнению практики
 
-Things you may want to cover:
+1. У вас должны быть установлены:
+  - docker
+  - docker-compose
+  - git
 
-* Ruby version
+2. Склонируйте репозиторий
 
-* System dependencies
+`git clone git@github.com:thinknetica/ruby_debug_homework.git`
 
-* Configuration
+ветка `day2_homework`
 
-* Database creation
+3. Сборка проекта:
 
-* Database initialization
+```bash
+cd ruby_debug_homework
+docker-compose build
+docker-compose up -d
+```
 
-* How to run the test suite
+5. Выполнить миграции для тестовой БД:
+```bash
+docker-compose exec web bash
+bundle exec rails db:create db:migrate RAILS_ENV=test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Задание
 
-* Deployment instructions
+Добейтесь успешного прогона всех тестов
+в контейнере web с заданным SEED:
 
-* ...
+```bash
+docker-compose exec web bash
+bundle exec rspec spec --seed 1707
+```
