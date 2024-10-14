@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby "3.1.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8", ">= 7.0.8.1"
@@ -113,10 +113,6 @@ group :development, :test do
   gem 'faker'
   gem 'timecop'
   gem 'database_cleaner-active_record'
-  gem 'webdrivers'
-  gem 'cucumber-rails', require: false
-  gem 'capybara-screenshot'
-  gem 'show_me_the_cookies'
   # Easy installation and use of web drivers to run system tests with browsers
 end
 
@@ -144,8 +140,8 @@ end
 gem 'rails-settings-cached', '~> 2.2'
 
 # Use the Puma web server [https://github.com/puma/puma]
-# gem "puma", "~> 5.0"
-gem "webrick", "~> 1.8"
+gem "puma", "~> 5.0"
+# gem "webrick", "~> 1.8"
 
 gem 'pry-byebug', '~> 3.9'
 gem "httparty", "~> 0.22.0"

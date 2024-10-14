@@ -116,7 +116,7 @@ Rails.application.routes.draw do
     resources :reports, only: %i[index create]
   end
 
-  post "pages/echo", to: "pages#echo"
+  post "pages/avatar", to: "pages#avatar"
 
   get "pages/confirm_email", to: "pages#confirm_email"
   get "pages/waiting_for_moderator", to: "pages#waiting_for_moderator"

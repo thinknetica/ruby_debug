@@ -6,9 +6,8 @@ class PagesController < ApplicationController
 
   def waiting_for_moderator;end
 
-
-  def echo
-    sleep 2
-    render plain: request.body.read
+  def avatar
+    # sleep rand(1)
+    render json: { user: request.body.read, avatar_url: SecureRandom.uuid }
   end
 end

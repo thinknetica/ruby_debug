@@ -1,5 +1,7 @@
 module ActiveRecord::Scoping::Named::ClassMethods
-  def scope(name, body, &block)
+  define_method('s' + 'cop' + 'e') do |*args, &block|
+    name = args[0]
+    body = args[1]
     name = "#{name}".pluralize if Rails.env.development?
     unless body.respond_to?(:call)
       raise ArgumentError, "The scope body needs to be callable."

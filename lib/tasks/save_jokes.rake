@@ -1,4 +1,4 @@
-require 'net/http/persistent'
+# require 'net/http/persistent'
 require 'json'
 require 'benchmark'
 
@@ -42,7 +42,7 @@ def start(jokes_number, workers = 4)
 end
 
 def register_request(client, name)
-  request_uri = "http://localhost:3000/pages/echo"
+  request_uri = "http://localhost:3000/pages/avatar"
   post = Net::HTTP::Post.new(request_uri)
   post.body = name
 
@@ -57,6 +57,27 @@ namespace :save_jokes do
   desc 'Saves jokes to database'
   task start: :environment do
     puts Benchmark.measure { start(100) }
+  end
+
+  desc 'Save user avatars'
+  task avatar: :environment do
+    puts Benchmark.measure {
+      uri = URI('http://localhost:3000/pages/avatar')
+      http = Net::HTTP.new(uri.host, uri.port)
+      request = Net::HTTP::Post.new(uri.path)
+      threads = []
+      data = []
+      User.find_each do |user|
+        threads << Thread.new(user, http, request, data) do |user_obj, http_obj, req, dt|
+          req.body = user.email
+          response = http_obj.request(req)
+          dt.push(JSON.parse(response.body))
+        end
+        threads.each &:join
+      end
+      
+      puts data.inspect
+    }
   end
 
   desc 'Demo echo server with error'
