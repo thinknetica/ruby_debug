@@ -11,6 +11,7 @@ en:
         password: Password
         password_confirmation: Password
         role: Role
+        hr_count: Help requests count
         admin: Administrator
         moderator: Moderator
         volunteer: Volunteer

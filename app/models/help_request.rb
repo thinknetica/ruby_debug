@@ -70,6 +70,8 @@ class HelpRequest < ApplicationRecord
   before_create :fill_activated_at
   before_update :update_activated_at
 
+  after_destroy :decrease_hr_count
+
   enum state: { active: 0, assigned: 1, submitted: 2, blocked: 3 } do
     event :assign do
       transition active: :assigned
@@ -116,6 +118,14 @@ class HelpRequest < ApplicationRecord
   end
 
   private
+
+  def decrease_hr_count
+    user = self.author
+    return unless user
+
+    user.update(hr_count: user.hr_count - 1)
+  end
+
 
   def fill_default_number
     self.number ||= (organization.help_requests.count + 1).to_s if organization

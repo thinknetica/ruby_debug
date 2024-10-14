@@ -93,7 +93,7 @@ en:
         other: less %{count} minute
       over_x_years:
         one: more %{count} a year
-        few: more %{count} years 
+        few: more %{count} years
         many:  more %{count} year
         other: more %{count} a year
       x_seconds:
@@ -373,12 +373,15 @@ en:
         number: Request number
         submit_search: Search
         cancel_filters: Reset filters
+        confirm: Are you sure?
         new_helprequest: New request
+        delete_all: Destroy all
         by_status: Status...
         by_creator: Creator...
         find: "Records found:"
       form:
         new_helprequest: New request
+        delete_all: Destroy all
         help_request: Request no.
         volunteer: "Volunteer:"
         char_limit: 140 symbols max
@@ -480,6 +483,7 @@ en:
         organization: Name of the organization
         sex: Sex
         role: Role
+        hr_count: Help request count
         points: Points
         not_assigned: Organization not assigned
         edit: Edit

@@ -18,6 +18,14 @@
     <div class='col-12 col-md-4 d-flex justify-content-center justify-content-md-end py-2 py-md-0 pr-0'>
       <%= link_to(t(".new_helprequest"), new_admin_help_request_path, class: 'btn btn-sm btn-success') %>
     </div>
+
+    <div class='col-12'>
+      <%= link_to(t(".delete_all"), destroy_all_admin_help_requests_path,
+                    method: :delete,
+                    data: { confirm: t(".confirm") },
+                    class: 'btn btn-sm btn-outline-danger align-self-start')
+      %>
+    </div>
   </div>
 
   <div class='form-inline mt-3'>

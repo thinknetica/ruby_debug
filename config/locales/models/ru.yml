@@ -25,6 +25,7 @@ ru:
         password: Пароль
         password_confirmation: Пароль
         role: Роль
+        hr_count: Число заявок
         admin: Администратор
         moderator: Модератор
         volunteer: Волонтер
@@ -59,9 +60,9 @@ ru:
         help_request_kind_id: Вид просьбы
         score: Баллы
       organization:
-        title: Наименование 
-        country: Страна 
-        city: Город 
+        title: Наименование
+        country: Страна
+        city: Город
         site: Сайт
         test: Тестовый фонд
         configs:
@@ -74,7 +75,7 @@ ru:
         organization_id: Организация
         help_requests: Просьбы
 
-        
+
       report:
         name: Название
         document: Файл отчета

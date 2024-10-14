@@ -12,6 +12,7 @@
 #  device_token           :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  hr_count               :integer          default(0)
 #  invitation_accepted_at :datetime
 #  invitation_created_at  :datetime
 #  invitation_limit       :integer

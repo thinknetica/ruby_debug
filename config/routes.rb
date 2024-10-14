@@ -77,6 +77,9 @@ Rails.application.routes.draw do
         get :custom_fields
         post :clone
       end
+      collection do
+        delete :destroy_all
+      end
     end
 
     resources :settings, only: %i[index] do

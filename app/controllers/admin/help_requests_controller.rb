@@ -64,6 +64,15 @@ module Admin
       flash[:notice] = 'Просьба удалена'
     end
 
+    def destroy_all
+      if HelpRequestCleaner.call(organization: current_organization)
+        flash[:notice] = 'Просьбы удалены'
+      else
+        flash[:error] = 'Ошибка удаления просьб'
+      end
+      redirect_to action: :index
+    end
+
     # rubocop:disable Metrics/MethodLength
     def custom_fields
       help_request_kind_id = params[:help_request_kind_id]

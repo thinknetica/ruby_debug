@@ -19,10 +19,12 @@ class HelpRequestLog < ApplicationRecord
   belongs_to :user
   belongs_to :help_request
 
-  has_many_attached :photos do |attachment|
-    attachable.variant :thumb, resize: "100x100"
-    attachable.variant :medium, resize: "300x300", monochrome: true
-  end
+  # has_many_attached :photos do |attachment|
+  #   attachable.variant :thumb, resize: "100x100"
+  #   attachable.variant :medium, resize: "300x300", monochrome: true
+  # end
+
+  after_create :increase_hr_count
 
   enum kind: {
     actived: 0, assigned: 1,
@@ -40,5 +42,12 @@ class HelpRequestLog < ApplicationRecord
   def label
     user_role = I18n.t("activerecord.attributes.user.#{self.user.role}")
     I18n.t("help_request_log.kind.#{self.kind}", user: user_role)
+  end
+
+  def increase_hr_count
+    return if kind != "created"
+
+    user = self.user
+    user.update(hr_count: user.hr_count + 1) if user
   end
 end

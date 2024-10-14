@@ -1,6 +1,6 @@
 class HelpRequestPolicy < ApplicationPolicy
   def index?
-    user.moderator? || user.content_manager? 
+    user.moderator? || user.content_manager?
   end
 
   def create?
@@ -17,6 +17,10 @@ class HelpRequestPolicy < ApplicationPolicy
 
   def destroy?
     standard_access(user, help_request)
+  end
+
+  def destroy_all?
+    user.moderator? || user.content_manager?
   end
 
   class Scope < Scope

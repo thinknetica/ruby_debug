@@ -375,13 +375,16 @@ ru:
         search_placeholder: Поиск...
         number: Номер просьбы
         submit_search: Искать
+        confirm: Вы уверены?
         cancel_filters: Сбросить фильтры
         new_helprequest: Новая просьба
+        delete_all: Удалить всех
         by_status: Статус...
         by_creator: Автор...
         find: "Найдено записей:"
       form:
         new_helprequest: Новая просьба
+        delete_all: Удалить всех
         help_request: Просьба №
         volunteer: "Волонтер:"
         char_limit: Не более 140 символов
@@ -483,6 +486,7 @@ ru:
         organization: Организация
         sex: Пол
         role: Роль
+        hr_count: Число заявок
         points: Баллы
         not_assigned: Организация не назначена
         edit: Редактировать

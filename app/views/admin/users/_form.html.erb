@@ -41,11 +41,14 @@
     <%= f.input :score, disabled: true%>
   <% end %>
 
+  <%= f.input :hr_count, disabled: true%>
+
   <% if current_user.admin? %>
-    <%= f.input :organization_id, 
+    <%= f.input :organization_id,
       collection: Organization.active.pluck(:title, :id)
     %>
   <% end %>
+
   <div class="form-group row mb-0">
     <div class="col-sm-9 offset-sm-3">
       <%= f.submit(user.new_record? ? t(".create") : t(".save"), class: 'btn btn-primary') %>

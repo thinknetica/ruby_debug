@@ -13,6 +13,7 @@
     <th scope="col"><%= t(".organization") %></th>
     <th scope="col"><%= t(".sex") %></th>
     <th scope="col"><%= t(".role") %></th>
+    <th scope="col"><%= t(".hr_count") %></th>
     <th scope="col"><%= t(".points") %></th>
     <th scope="col" style="width: 10%"></th>
   </tr>
@@ -36,6 +37,7 @@
         <% end %>
       </td>
       <td><%= I18n.t(record.role, scope: [:roles]) %></td>
+      <td><%= record.hr_count %>
       <td><%= record.score %></td>
       <td style="width: 10%"><%= link_to(t(".edit"), edit_admin_user_path(record), class: 'btn btn-sm btn-outline-primary') %></td>
     </tr>
