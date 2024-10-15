@@ -149,3 +149,5 @@ gem "httparty", "~> 0.22.0"
 gem "webmock", "~> 3.24"
 
 gem "vcr", "~> 6.3"
+
+gem "net-http-persistent", "~> 4.0"

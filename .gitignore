@@ -7,6 +7,8 @@
 # Ignore bundler config.
 /.bundle
 
+vendor/bundle
+
 /.ruby-version
 
 # Ignore all logfiles and tempfiles.

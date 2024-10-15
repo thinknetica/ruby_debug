@@ -12,11 +12,12 @@ RUN apt-get update && \
 # Copy Gemfile and Gemfile.lock to the working directory
 COPY Gemfile Gemfile.lock ./
 
-# Install gems
-RUN bundle install
-
 # Copy the rest of the application code
 COPY . .
+
+# Install gems
+# RUN bundle config set --local path 'vendor/bundle'
+RUN bundle install --path '/app/vendor/bundle'
 
 # Expose port 3000 to the outside world
 EXPOSE 3000
