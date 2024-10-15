@@ -1,7 +1,6 @@
 module Admin
   class DashboardController < BaseController
     def index
-      # binding.pry
       searcher = if current_user.admin?
                    Dashboard::AdminSearcher
                  elsif current_user.moderator?

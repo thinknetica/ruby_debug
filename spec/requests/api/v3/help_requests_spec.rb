@@ -11,7 +11,7 @@ RSpec.describe 'Api::V3::HelpRequests', type: :request do
       it "can't find the user" do
         get api_v3_help_requests_path
         expect(response).to have_http_status(404)
-        expect(JSON.parse(response.body)).to eq({ 'errors' => [{ 'message' => 'Пользователь не найден' }] })
+        expect(JSON.parse(response.body)).to eq({"errors"=>[{"message"=>"User not found error"}]})
       end
     end
   end
@@ -121,12 +121,20 @@ RSpec.describe 'Api::V3::HelpRequests', type: :request do
   describe 'POST /api/v3/help_requests/:id/assign' do
     let!(:help_request) { create :help_request, organization: organization, creator: moderator }
 
-    it 'assigns HelpRequest record' do
-      expect(help_request.volunteer).to be_nil
-      expect(help_request.state).to eq('active')
-      post(assign_api_v3_help_request_path(help_request))
-      expect(help_request.reload.volunteer).to eq(user)
-      expect(help_request.state).to eq('assigned')
+    context 'when no comment' do
+      it 'returns error message' do
+        expect(help_request.volunteer).to be_nil
+        expect(help_request.state).to eq('active')
+        post(assign_api_v3_help_request_path(help_request))
+        expect(JSON.parse(response.body)).to eql({
+          "errors" => [
+            {
+              "message" => "Blank comment error"
+            }
+          ]
+        }
+        )
+      end
     end
   end
 

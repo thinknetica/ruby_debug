@@ -2,7 +2,7 @@
 
 module Api
   module V3
-    class HelpRequestsController < Api::V1::BaseController
+    class HelpRequestsController < Api::V3::BaseController
       before_action :fill_help_request, only: %i[assign submit refuse]
 
       def index
@@ -17,6 +17,7 @@ module Api
       end
 
       def assign
+        raise ApiErrors::BlankCommentError if update_params[:comment].blank?
         data = Api::V3::HelpRequestCases::Assign.new({
                                                        help_request: @help_request,
                                                        volunteer: current_api_user,

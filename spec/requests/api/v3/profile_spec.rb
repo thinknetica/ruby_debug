@@ -41,6 +41,17 @@ RSpec.describe 'Api::V3::Profile', type: :request do
       expect(user.reload.device_token).to eq(device_token)
       expect(user.reload.device_platform).to eq(device_platform)
     end
+
+    context 'when no device token' do
+      let(:device_token) { nil }
+      let(:device_platform) { 'android' }
+
+      it 'returns error' do
+        post api_v3_subscribe_path, params: { device_platform: device_platform, device_token: device_token }
+        expect(JSON.parse(response.body)).to eq({"errors" => [{"message"=>"User does not have another permissions"}]})
+        expect(response).to have_http_status(403)
+      end
+    end
   end
 
   describe 'DELETE /api/v3/unsubscribe' do

@@ -2,9 +2,6 @@ class NewVolunteerNotificationWorker
   include Sidekiq::Worker
 
   def perform(user_id)
-    # if user_id.to_i == 1
-    #   binding.pry
-    # end
     volunteer = User.find(user_id)
     organization_id = volunteer.organization_id
     User.moderators.where(organization_id: organization_id).pluck(:id).each do |moderator_id|
