@@ -276,6 +276,9 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
+    pry-doc (1.5.0)
+      pry (~> 0.11)
+      yard (~> 0.9.11)
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
@@ -464,6 +467,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yard (0.9.37)
     zeitwerk (2.6.18)
 
 PLATFORMS
@@ -504,6 +508,7 @@ DEPENDENCIES
   net-http-persistent (~> 4.0)
   pg (~> 1.1)
   pry-byebug (~> 3.9)
+  pry-doc (~> 1.5)
   puma (~> 5.0)
   pundit
   rails (~> 7.0.8, >= 7.0.8.1)
