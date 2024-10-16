@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   def waiting_for_moderator;end
 
   def avatar
-    # sleep rand(1)
-    render json: { user: request.body.read, avatar_url: SecureRandom.uuid }
+    user = User.find_by!(email: request.body.read)
+    render json: { user: user.email, avatar_url: SecureRandom.uuid }
   end
 end
