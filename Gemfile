@@ -157,3 +157,8 @@ gem 'rails-settings-cached', '~> 2.2'
 gem 'pry', '~> 0.13.1'
 
 gem 'pry-byebug', '~> 3.9'
+gem "httparty", "~> 0.22.0"
+
+gem "webmock", "~> 3.24"
+
+gem "vcr", "~> 6.3"

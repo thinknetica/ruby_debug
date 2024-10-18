@@ -29,6 +29,7 @@ RSpec.describe User, type: :model do
     let(:worker_double) { class_double("NewVolunteerNotificationWorker").as_stubbed_const }
 
     it 'enqueues a notification job' do
+      allow(worker_double).to receive(:perform_async)
       expect(worker_double).to receive(:perform_async).with(user.id)
       user.notify_moderators
     end

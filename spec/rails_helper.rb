@@ -14,6 +14,19 @@ Dir[Rails.root.join('spec', 'helpers', '**', '*.rb')].sort.each { |f| require f 
 require 'simplecov'
 SimpleCov.start
 
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/cassettes'
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+  config.before_record do |i|
+    i.response.body.force_encoding('UTF-8')
+  end
+  config.default_cassette_options = config.default_cassette_options.merge(:match_requests_on=>[:method, :uri, :body, :headers])
+  config.allow_http_connections_when_no_cassette = true
+end
+
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
