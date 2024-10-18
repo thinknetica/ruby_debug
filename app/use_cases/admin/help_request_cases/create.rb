@@ -2,7 +2,7 @@ module Admin
   module HelpRequestCases
     class Create < Base
       def call
-        HelpRequest.transition do
+        HelpRequest.transaction do
           prelim_handle_address!(permitted_params)
           if help_request.update(
             permitted_params.merge(
@@ -18,7 +18,7 @@ module Admin
         end
 
         false
-      rescue
+      rescue Exception => e
         false
       end
 

@@ -45,7 +45,7 @@ class HelpRequestsSearcher < TextSearcher
     else
       sort = by_sorting_params
     end
-    scope = apply_normalizer(scope)
+    # scope = apply_normalizer(scope)
     scope.reorder(sort)
   end
 
