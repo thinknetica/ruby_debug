@@ -14,10 +14,8 @@ module Api
         render json: { subscribed: current_api_user.save }
       end
 
-      rescue_from StandardError do |e|
-        raise ApiErrors::Base.new({ message: e.message })
-      rescue ApiErrors::Base => err
-        render_error_message(err)
+      rescue_from ApiErrors::Base do |e|
+        render_error_message(e)
       end
 
       private

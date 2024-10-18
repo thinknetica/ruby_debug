@@ -122,8 +122,9 @@ class HelpRequest < ApplicationRecord
   def decrease_hr_count
     user = self.author
     return unless user
-
-    user.update(hr_count: user.hr_count - 1)
+    user.with_lock do
+      user.update(hr_count: user.hr_count - 1)
+    end
   end
 
 
